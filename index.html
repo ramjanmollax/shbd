@@ -709,13 +709,13 @@
     .float-order .cta-btn::after{animation:none;display:none;}
   }
 
-  /* ---------- Order confirmed overlay (PREMIUM) ----------
-     Deep-green gradient backdrop; the card opens with a dark-green
-     gradient header band (gold accent line, gradient tick in a gold ring,
-     order number + date/time chips), then a cream RECEIPT card with
-     dashed separators and a scalloped bottom edge that the customer can
-     download as a PNG image with the download button, then the delivery
-     note and the action buttons. */
+  /* ---------- Order confirmed overlay (simple, premium) ----------
+     Deep-green gradient backdrop; a compact card with a dark-green
+     gradient header band (gold accent line, gradient tick in a gold
+     ring, title + one short thanks line), then a clean cream RECEIPT
+     with only the essentials — order number, name, mobile, address,
+     product, total with cash-on-delivery — which the customer can
+     download as a PNG, and the two action buttons. Nothing else. */
   .confirm-overlay{
     display:none;position:fixed;inset:0;z-index:200;
     background:linear-gradient(165deg,rgba(4,39,22,.97) 0%,rgba(6,56,37,.96) 55%,rgba(11,90,52,.95) 100%);
@@ -732,34 +732,24 @@
   .confirm-head{
     position:relative;
     background:linear-gradient(140deg,#08492a 0%,#0b5a34 52%,#128a4c 100%);
-    padding:22px 22px 16px;color:#fff;
+    padding:20px 20px 15px;color:#fff;
   }
   .confirm-head::after{
     content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
     background:linear-gradient(90deg,#b7e63f 0%,#7ed957 38%,#ffb066 78%,#ee7225 100%);
   }
   .confirm-box .tick{
-    width:64px;height:64px;border-radius:50%;
+    width:56px;height:56px;border-radius:50%;
     background:linear-gradient(150deg,#7ed957,#128a4c);color:#fff;
-    display:flex;align-items:center;justify-content:center;margin:0 auto 10px;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 9px;
     border:3px solid #ffd93b;
     box-shadow:0 8px 22px rgba(0,0,0,.35),inset 0 2px 0 rgba(255,255,255,.4);
   }
-  .confirm-box .tick svg{width:32px;height:32px;display:block;}
-  .confirm-box h2{font-size:26px;line-height:1.25;color:#fff;margin:0 0 6px;font-weight:800;}
-  .confirm-box .confirm-sub{font-size:14px;color:#e8ffc8;margin:0;line-height:1.6;}
+  .confirm-box .tick svg{width:28px;height:28px;display:block;}
+  .confirm-box h2{font-size:24px;line-height:1.25;color:#fff;margin:0 0 4px;font-weight:800;}
+  .confirm-box .confirm-sub{font-size:13.5px;color:#e8ffc8;margin:0;line-height:1.55;}
   .confirm-box .confirm-sub strong{color:#fff;}
-  .confirm-meta{
-    display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:11px;
-  }
-  .confirm-meta span{
-    display:inline-flex;align-items:center;gap:4px;
-    background:rgba(255,255,255,.12);border:1px solid rgba(183,230,63,.5);
-    border-radius:999px;padding:3px 11px;
-    font-size:12px;font-weight:700;color:#e8ffc8;line-height:1.4;
-  }
-  .confirm-meta b{color:#ffd93b;font-weight:800;}
-  .confirm-body{padding:16px 18px 18px;}
+  .confirm-body{padding:14px 16px 16px;}
 
   /* the receipt itself — cream paper, dashed rules, scalloped bottom edge */
   .receipt{
@@ -782,7 +772,6 @@
     font-family:'Baloo Da 2','Hind Siliguri',sans-serif;font-size:17px;font-weight:800;color:var(--green-deep);line-height:1.2;
   }
   .receipt-brand .rb-name .bd{color:var(--green-mid);}
-  .receipt-brand .rb-tag{font-size:10.5px;font-weight:700;color:#7d8b74;line-height:1.3;}
   .receipt-title{
     flex:0 0 auto;font-size:11px;font-weight:800;letter-spacing:.4px;color:var(--amber-deep);
     background:#fff3e2;border:1px solid #f3cf9f;border-radius:999px;padding:3px 10px;line-height:1.3;white-space:nowrap;
@@ -791,7 +780,7 @@
   .rc-row[hidden]{display:none;}
   .rc-row .k{flex:0 0 auto;font-weight:700;color:#6b7d66;}
   .rc-row .v{font-weight:700;color:var(--ink);text-align:right;overflow-wrap:break-word;min-width:0;}
-  .rc-row .v.free{color:var(--green-mid);font-weight:800;}
+  .rc-row.rc-id .v{font-weight:800;color:var(--green-deep);font-size:15px;letter-spacing:.3px;}
   .rc-div{border-top:1.5px dashed #cfdcbc;margin:8px 0;}
   .rc-total{
     display:flex;justify-content:space-between;align-items:center;gap:12px;
@@ -804,12 +793,7 @@
     background:linear-gradient(120deg,#128a4c,#0b5a34);padding:9px 16px;border-radius:999px;
     box-shadow:0 3px 8px rgba(11,90,52,.40);
   }
-  .confirm-box p.delivery-note{
-    background:#fff3c4;border:1px solid #ffc107;border-left:5px solid #ff9800;
-    border-radius:12px;padding:11px 13px;color:#3e2723;font-weight:700;font-size:13px;
-    line-height:1.65;text-align:left;margin:16px 0 0;
-  }
-  .confirm-actions{display:flex;flex-direction:column;gap:9px;margin-top:15px;}
+  .confirm-actions{display:flex;flex-direction:column;gap:9px;margin-top:19px;}
   .receipt-btn{
     width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;
     background:linear-gradient(180deg,#fd883c,#e8722c);color:#fff;border:none;cursor:pointer;
@@ -825,7 +809,6 @@
     font-weight:800;font-size:15px;font-family:inherit;padding:11px 16px;border-radius:12px;
   }
   .confirm-box button.confirm-close:active{background:var(--green-pale);}
-  .confirm-box p.closing{text-align:center;color:var(--green-deep);font-weight:800;font-size:15.5px;margin:14px 0 0;}
   @media(max-width:370px){
     .confirm-overlay{padding:10px;}
     .confirm-head{padding:18px 16px 14px;}
@@ -1095,43 +1078,31 @@
   </div>
 </div>
 
-<!-- Order confirmed overlay (premium) + customer receipt -->
+<!-- Order confirmed overlay (simple) + customer receipt -->
 <div class="confirm-overlay" id="confirmOverlay" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
   <div class="confirm-box">
     <div class="confirm-head">
       <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
       <h2 id="confirmTitle">অর্ডার সম্পন্ন হয়েছে!</h2>
-      <p class="confirm-sub"><strong>ধন্যবাদ, <span id="cfName">—</span>!</strong> আপনার অর্ডারটি সফলভাবে জমা হয়েছে। আমাদের অফিস থেকে শীঘ্রই আপনাকে কল করে অর্ডারটি নিশ্চিত করা হবে।</p>
-      <div class="confirm-meta">
-        <span>অর্ডার নং: <b id="cfOrderId">—</b></span>
-        <span id="cfDate">—</span>
-      </div>
+      <p class="confirm-sub"><strong>ধন্যবাদ, <span id="cfName">—</span>!</strong> শীঘ্রই কল করে অর্ডারটি নিশ্চিত করা হবে।</p>
     </div>
     <div class="confirm-body">
       <div class="receipt" id="receiptCard" aria-label="অর্ডারের রিসিট">
         <div class="receipt-brand">
-          <div>
-            <div class="rb-name">Seed Haven <span class="bd">BD</span></div>
-            <div class="rb-tag">ভালো বীজ মানেই ভালো ফলন</div>
-          </div>
+          <span class="rb-name">Seed Haven <span class="bd">BD</span></span>
           <span class="receipt-title">অর্ডারের রিসিট</span>
         </div>
+        <div class="rc-row rc-id"><span class="k">অর্ডার নং</span><span class="v" id="rcOrderId">—</span></div>
         <div class="rc-row"><span class="k">নাম</span><span class="v" id="rcName">—</span></div>
         <div class="rc-row"><span class="k">মোবাইল</span><span class="v" id="rcPhone">—</span></div>
-        <div class="rc-row"><span class="k">জেলা</span><span class="v" id="rcDistrict">—</span></div>
-        <div class="rc-row"><span class="k">উপজেলা</span><span class="v" id="rcUpazila">—</span></div>
         <div class="rc-row"><span class="k">ঠিকানা</span><span class="v" id="rcAddress">—</span></div>
         <div class="rc-div"></div>
         <div class="rc-row"><span class="k">পণ্য</span><span class="v" id="rcProduct">—</span></div>
-        <div class="rc-row"><span class="k">পণ্যের মূল্য</span><span class="v" id="rcPrice">—</span></div>
-        <div class="rc-row" id="rcDiscountRow" hidden><span class="k">ছাড়</span><span class="v free" id="rcDiscount">—</span></div>
-        <div class="rc-row"><span class="k">ডেলিভারি চার্জ</span><span class="v free">ফ্রি</span></div>
         <div class="rc-total">
-          <span class="t-label">সর্বমোট<small>ক্যাশ অন ডেলিভারি — পণ্য হাতে পেয়ে টাকা দিন</small></span>
+          <span class="t-label">সর্বমোট<small>ক্যাশ অন ডেলিভারি</small></span>
           <b id="rcTotal">—</b>
         </div>
       </div>
-      <p class="delivery-note">আমরা আমাদের কাস্টমারদের ফ্রি ডেলিভারি দিচ্ছি। তবে কুরিয়ারে পাঠাতে আমাদের খরচ হয় — তাই কোনো কারণে পার্সেল নিতে না পারলে অনুগ্রহ করে আগে জানিয়ে দেবেন।</p>
       <div class="confirm-actions">
         <button type="button" class="receipt-btn" id="receiptBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
@@ -1139,7 +1110,6 @@
         </button>
         <button type="button" class="confirm-close" id="confirmClose">ঠিক আছে</button>
       </div>
-      <p class="closing">ধন্যবাদ, Seed Haven BD-এর সাথে থাকার জন্য 🌱</p>
     </div>
   </div>
 </div>
@@ -1358,6 +1328,25 @@
      success. */
   function delay(ms){ return new Promise(function(res){ setTimeout(res, ms); }); }
 
+  /* The bridge assigns the real, short order number (SH-001, SH-002, …) —
+     the same one it writes to Telegram and the Google Sheet — and returns
+     it in the doPost response body as JSON: {"orderId":"SH-001", …}. The
+     transports below read that value whenever the response is readable,
+     and the receipt shows it, so the customer's receipt, the Telegram
+     message and the Sheet row all carry the SAME order number. Only when
+     no orderId comes back (e.g. the sendBeacon path, whose response can
+     never be read) does the receipt fall back to the long client-side ID
+     generated at submit time. */
+  function extractOrderId(text){
+    try {
+      if (!text) return null;
+      var data = JSON.parse(text);
+      var id = data && data.orderId;
+      if (typeof id === "string" && /^[A-Za-z0-9][A-Za-z0-9\-]{0,19}$/.test(id)) return id;
+    } catch (err) {}
+    return null;
+  }
+
   function attemptFetch(body, ms){
     return new Promise(function(resolve, reject){
       if (!("fetch" in window)){ reject(new Error("no fetch")); return; }
@@ -1365,15 +1354,23 @@
       var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, ms) : null;
       fetch(bridgeUrl, {
         method: "POST",
-        mode: "no-cors",
+        mode: "cors",
         cache: "no-store",
         keepalive: true,
         signal: ctrl ? ctrl.signal : undefined,
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: body
-      }).then(function(){
-        if (timer) clearTimeout(timer);
-        resolve();
+      }).then(function(res){
+        /* Read the bridge's JSON reply so its short orderId can be used on
+           the receipt. An unreadable or non-JSON reply still counts as a
+           delivered order — it just resolves with no ID (fallback). */
+        return res.text().then(function(text){
+          if (timer) clearTimeout(timer);
+          resolve(extractOrderId(text));
+        }, function(){
+          if (timer) clearTimeout(timer);
+          resolve(null);
+        });
       }, function(err){
         if (timer) clearTimeout(timer);
         reject(err);
@@ -1389,7 +1386,7 @@
       xhr.open("POST", bridgeUrl, true);
       xhr.timeout = ms;
       try { xhr.setRequestHeader("Content-Type", "text/plain;charset=utf-8"); } catch (err) {}
-      xhr.onload = function(){ if (!done){ done = true; resolve(); } };
+      xhr.onload = function(){ if (!done){ done = true; resolve(extractOrderId(xhr.responseText)); } };
       xhr.onerror = function(){ if (!done){ done = true; reject(new Error("xhr error")); } };
       xhr.ontimeout = function(){ if (!done){ done = true; reject(new Error("xhr timeout")); } };
       try { xhr.send(body); } catch (err){ if (!done){ done = true; reject(err); } }
@@ -1418,17 +1415,11 @@
     return attemptFetch(body, 45000);
   }
 
-  /* The last successfully sent order, kept in memory so the premium
-     confirmation can show the full receipt and the customer can download
-     it. Filled only after a transport confirms delivery (same moment the
-     overlay opens) — never on a failed send. */
+  /* The last successfully sent order, kept in memory so the confirmation
+     can show the receipt and the customer can download it. Filled only
+     after a transport confirms delivery (same moment the overlay opens)
+     — never on a failed send. */
   var lastOrder = null;
-  var bnMonths = ["জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর"];
-  function pad2(n){ return (n < 10 ? "0" : "") + n; }
-  function formatBnDateTime(d){
-    return toBn(d.getDate()) + " " + bnMonths[d.getMonth()] + " " + toBn(d.getFullYear()) +
-      " • " + toBn(pad2(d.getHours())) + ":" + toBn(pad2(d.getMinutes()));
-  }
 
   function showConfirmation(orderPayload){
     lastOrder = {
@@ -1438,24 +1429,16 @@
       upazila: orderPayload.upazila,
       address: orderPayload.address,
       quantity: orderPayload.quantity,
-      subtotal: comboPrice * orderPayload.quantity,
-      discount: orderPayload.quantity === 2 ? twoComboDiscount : 0,
       total: orderPayload.total,
-      orderId: orderPayload.orderId,
-      dateTime: new Date()
+      orderId: orderPayload.orderId
     };
     document.getElementById("cfName").textContent = lastOrder.name;
-    document.getElementById("cfOrderId").textContent = lastOrder.orderId;
-    document.getElementById("cfDate").textContent = formatBnDateTime(lastOrder.dateTime);
+    document.getElementById("rcOrderId").textContent = lastOrder.orderId;
     document.getElementById("rcName").textContent = lastOrder.name;
     document.getElementById("rcPhone").textContent = toBn(lastOrder.phone);
-    document.getElementById("rcDistrict").textContent = lastOrder.district;
-    document.getElementById("rcUpazila").textContent = lastOrder.upazila;
-    document.getElementById("rcAddress").textContent = lastOrder.address;
+    document.getElementById("rcAddress").textContent =
+      lastOrder.address + ", " + lastOrder.upazila + ", " + lastOrder.district;
     document.getElementById("rcProduct").textContent = "২৫ প্রকার বীজের কম্বো প্যাক × " + toBn(lastOrder.quantity) + "টি";
-    document.getElementById("rcPrice").textContent = "৳" + toBn(lastOrder.subtotal);
-    document.getElementById("rcDiscountRow").hidden = lastOrder.discount === 0;
-    document.getElementById("rcDiscount").textContent = "−৳" + toBn(lastOrder.discount);
     document.getElementById("rcTotal").textContent = money(lastOrder.total);
     overlay.classList.add("show");
     document.body.style.overflow = "hidden";
@@ -1471,8 +1454,13 @@
         submitBtn.textContent = "আবার চেষ্টা করা হচ্ছে… (" + toBn(round) + "/" + toBn(totalRounds) + ")";
         warmBridge();
       }
-      tryRound(body, round).then(function(){
+      tryRound(body, round).then(function(bridgeOrderId){
         setSending(false);
+        /* The bridge's short order number (SH-001, SH-002, …) — the same
+           one sent to Telegram and the Sheet — wins over the long
+           client-side ID, so the customer's receipt shows that number.
+           Only when no ID came back (beacon path) does the fallback stay. */
+        if (bridgeOrderId) orderPayload.orderId = bridgeOrderId;
         showConfirmation(orderPayload);
       }, function(){
         if (round < totalRounds) delay(round === 1 ? 1500 : 3000).then(next);
@@ -1564,25 +1552,15 @@
     if (!lastOrder) return;
     var lines = [
       "Seed Haven BD — অর্ডারের রিসিট",
-      "ভালো বীজ মানেই ভালো ফলন",
       "--------------------------------",
       "অর্ডার নং: " + lastOrder.orderId,
-      "তারিখ ও সময়: " + formatBnDateTime(lastOrder.dateTime),
-      "--------------------------------",
       "নাম: " + lastOrder.name,
       "মোবাইল: " + lastOrder.phone,
-      "জেলা: " + lastOrder.district,
-      "উপজেলা: " + lastOrder.upazila,
-      "ঠিকানা: " + lastOrder.address,
-      "--------------------------------",
+      "ঠিকানা: " + lastOrder.address + ", " + lastOrder.upazila + ", " + lastOrder.district,
       "পণ্য: ২৫ প্রকার বীজের কম্বো প্যাক × " + lastOrder.quantity + "টি",
-      "পণ্যের মূল্য: ৳" + lastOrder.subtotal
+      "--------------------------------",
+      "সর্বমোট: " + lastOrder.total + " টাকা (ক্যাশ অন ডেলিভারি)"
     ];
-    if (lastOrder.discount) lines.push("ছাড়: −৳" + lastOrder.discount);
-    lines.push("ডেলিভারি চার্জ: ফ্রি");
-    lines.push("সর্বমোট: " + lastOrder.total + " টাকা (ক্যাশ অন ডেলিভারি)");
-    lines.push("--------------------------------");
-    lines.push("ধন্যবাদ, Seed Haven BD-এর সাথে থাকার জন্য");
     saveBlob(new Blob(["\ufeff" + lines.join("\n")], { type: "text/plain;charset=utf-8" }), receiptFileBase() + ".txt");
   }
   function downloadReceipt(){
@@ -1594,38 +1572,26 @@
     var FONT = "'Hind Siliguri',sans-serif";
     var DISPLAY = "'Baloo Da 2','Hind Siliguri',sans-serif";
     ctx.font = "600 27px " + FONT;
-    var addrLines = wrapLines(ctx, lastOrder.address, CW - 170);
-    var rowsTop = [
-      ["নাম", lastOrder.name],
-      ["মোবাইল", toBn(lastOrder.phone)],
-      ["জেলা", lastOrder.district],
-      ["উপজেলা", lastOrder.upazila]
-    ];
-    var H = 150 + 64 + rowsTop.length * 42 + addrLines.length * 40 + 20 + 3 * 42 + (lastOrder.discount ? 42 : 0) + 92 + 74;
+    var addrText = lastOrder.address + ", " + lastOrder.upazila + ", " + lastOrder.district;
+    var addrLines = wrapLines(ctx, addrText, CW - 170);
+    var H = 516 + addrLines.length * 40;
     cv.width = W; cv.height = H;
     /* background: white card, deep-green header band with a gold rule */
     ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, W, H);
-    ctx.fillStyle = "#0b5a34"; ctx.fillRect(0, 0, W, 150);
-    ctx.fillStyle = "#ffd93b"; ctx.fillRect(0, 150, W, 5);
+    ctx.fillStyle = "#0b5a34"; ctx.fillRect(0, 0, W, 118);
+    ctx.fillStyle = "#ffd93b"; ctx.fillRect(0, 118, W, 5);
     ctx.textAlign = "center";
     ctx.fillStyle = "#ffffff";
-    ctx.font = "800 44px " + DISPLAY;
-    ctx.fillText("Seed Haven BD", W / 2, 66);
-    ctx.font = "700 24px " + FONT;
-    ctx.fillStyle = "#cfe8c8";
-    ctx.fillText("ভালো বীজ মানেই ভালো ফলন", W / 2, 106);
+    ctx.font = "800 42px " + DISPLAY;
+    ctx.fillText("Seed Haven BD", W / 2, 56);
     ctx.fillStyle = "#ffd93b";
-    ctx.font = "800 25px " + FONT;
-    ctx.fillText("অর্ডারের রিসিট", W / 2, 138);
-    var y = 205;
+    ctx.font = "800 24px " + FONT;
+    ctx.fillText("অর্ডারের রিসিট", W / 2, 94);
+    var y = 168;
     ctx.textAlign = "left";
-    ctx.font = "700 24px " + FONT;
-    ctx.fillStyle = "#41543f";
+    ctx.font = "800 27px " + FONT;
+    ctx.fillStyle = "#0b5a34";
     ctx.fillText("অর্ডার নং: " + lastOrder.orderId, M, y);
-    ctx.textAlign = "right";
-    ctx.fillText(formatBnDateTime(lastOrder.dateTime), W - M, y);
-    ctx.textAlign = "left";
-    y += 22;
     function dashed(yy){
       ctx.strokeStyle = "#b7d3a6"; ctx.lineWidth = 2; ctx.setLineDash([8, 7]);
       ctx.beginPath(); ctx.moveTo(M, yy); ctx.lineTo(W - M, yy); ctx.stroke(); ctx.setLineDash([]);
@@ -1640,8 +1606,10 @@
       ctx.textAlign = "left";
       y += 42;
     }
+    y += 20;
     dashed(y); y += 38;
-    for (var r = 0; r < rowsTop.length; r++) row(rowsTop[r][0], rowsTop[r][1], true);
+    row("নাম", lastOrder.name, true);
+    row("মোবাইল", toBn(lastOrder.phone), true);
     ctx.font = "700 27px " + FONT;
     ctx.fillStyle = "#6b7d66";
     ctx.fillText("ঠিকানা", M, y);
@@ -1652,9 +1620,6 @@
     y += 2;
     dashed(y); y += 38;
     row("পণ্য", "২৫ প্রকার বীজের কম্বো প্যাক × " + toBn(lastOrder.quantity) + "টি", true);
-    row("পণ্যের মূল্য", "৳" + toBn(lastOrder.subtotal), true);
-    if (lastOrder.discount) row("ছাড়", "−৳" + toBn(lastOrder.discount), true, "#128a4c");
-    row("ডেলিভারি চার্জ", "ফ্রি", true, "#128a4c");
     dashed(y); y += 52;
     ctx.font = "800 32px " + FONT;
     ctx.fillStyle = "#0b5a34";
@@ -1670,15 +1635,10 @@
     ctx.textAlign = "right";
     ctx.fillText(totalText, W - M - 22, y);
     ctx.textAlign = "left";
-    y += 34;
+    y += 38;
     ctx.font = "600 23px " + FONT;
     ctx.fillStyle = "#7d8b74";
     ctx.fillText("ক্যাশ অন ডেলিভারি — পণ্য হাতে পেয়ে টাকা দিন", M, y);
-    y += 44;
-    ctx.textAlign = "center";
-    ctx.font = "800 25px " + FONT;
-    ctx.fillStyle = "#0b5a34";
-    ctx.fillText("ধন্যবাদ, Seed Haven BD-এর সাথে থাকার জন্য 🌱", W / 2, y);
     if (cv.toBlob){
       cv.toBlob(function(blob){
         if (blob) saveBlob(blob, receiptFileBase() + ".png");
